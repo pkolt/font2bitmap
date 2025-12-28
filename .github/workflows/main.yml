@@ -1,0 +1,78 @@
+name: Main Workflow
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches:
+      - '*'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  node_version: '24'
+
+jobs:
+  install:
+    name: Install dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ✅
+        uses: actions/checkout@v4
+      - name: Setup Node 🤖
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.node_version }}
+          cache: npm
+      - name: Cache node_modules 🔮
+        id: cache-modules
+        uses: actions/cache@v4
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-modules-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies 📦
+        if: steps.cache-modules.outputs.cache-hit != 'true'
+        shell: bash
+        run: npm ci
+
+  check:
+    name: Check all
+    needs: [install]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ✅
+        uses: actions/checkout@v4
+      - name: Setup Node 🤖
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.node_version }}
+          cache: npm
+      - name: Restore cache 🔮
+        id: cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-modules-${{ hashFiles('package-lock.json') }}
+      - name: Check all 👷‍♂️
+        run: node --run check
+
+  test:
+    name: Run Tests
+    needs: [install]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ✅
+        uses: actions/checkout@v4
+      - name: Setup Node 🤖
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.node_version }}
+          cache: npm
+      - name: Restore cache 🔮
+        id: cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-modules-${{ hashFiles('package-lock.json') }}
+      - name: Run Tests 🚦
+        run: node --run test

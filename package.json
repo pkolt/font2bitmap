@@ -1,0 +1,63 @@
+{
+  "name": "font2bitmap",
+  "version": "0.0.1",
+  "description": "Utility to convert font files to bitmap format",
+  "main": "dist/cli.js",
+  "type": "module",
+  "keywords": [
+    "bitmap",
+    "OLED",
+    "font",
+    "ssd1306"
+  ],
+  "author": "Pavel Koltyshev <pkoltyshev@gmail.com>",
+  "license": "MIT",
+  "repository": "pkolt/font2bitmap",
+  "bugs": {
+    "url": "https://github.com/pkolt/font2bitmap/issues",
+    "email": "pkoltyshev@gmail.com"
+  },
+  "files": [
+    "README.md",
+    "LICENSE.md",
+    "dist/cli.js"
+  ],
+  "bin": {
+    "font2bitmap": "dist/cli.js"
+  },
+  "engines": {
+    "node": ">= 24"
+  },
+  "scripts": {
+    "dev": "node ./src/cli.ts",
+    "build": "esbuild ./src/cli.ts --bundle --minify --platform=node --format=esm --packages=external --outfile=./dist/cli.js",
+    "types": "tsc --noEmit",
+    "format": "prettier --check src",
+    "format-fix": "prettier --write src",
+    "lint": "eslint",
+    "lint-fix": "eslint --fix",
+    "knip": "knip",
+    "test": "node --test",
+    "coverage": "node --test --experimental-test-coverage",
+    "check": "npm run types && npm run format && npm run test && npm run lint && npm run knip",
+    "prepare": "if [ \"$NODE_ENV\" != \"production\" ]; then git config core.hooksPath .git-hooks; fi",
+    "pre-commit": "npm run check",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@types/node": "^25.0.3",
+    "esbuild": "^0.27.2",
+    "eslint": "^9.39.2",
+    "jiti": "^2.6.1",
+    "knip": "^5.78.0",
+    "prettier": "^3.7.4",
+    "release-it": "^19.2.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.50.1"
+  },
+  "dependencies": {
+    "canvas": "^3.2.0",
+    "commander": "^14.0.2"
+  }
+}
