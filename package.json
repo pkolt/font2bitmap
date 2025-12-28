@@ -1,6 +1,6 @@
 {
   "name": "font2bitmap",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Utility to convert font files to bitmap format",
   "main": "dist/cli.js",
   "type": "module",
