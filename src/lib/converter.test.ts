@@ -18,6 +18,7 @@ const defaultOptions: ConverterOptions = {
   subsets: [],
   symbols: [],
   letterSpacing: 0,
+  wordSpacing: 0,
 };
 
 describe('converterFont', () => {

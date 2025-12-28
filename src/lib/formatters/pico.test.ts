@@ -10,6 +10,7 @@ describe('picoFormat', () => {
       width: 8,
       height: 8,
       letterSpacing: 1,
+      wordSpacing: 6,
       subsets: [
         {
           start: 65, // 'A'
@@ -30,6 +31,7 @@ describe('picoFormat', () => {
     assert.match(output, /\.width = 8/);
     assert.match(output, /\.height = 8/);
     assert.match(output, /\.letter_spacing = 1/);
+    assert.match(output, /\.word_spacing = 6/);
     assert.match(output, /\.subsets_count = 1/);
     assert.match(output, /\.start = 65/);
     assert.match(output, /\.end = 66/);
@@ -49,6 +51,7 @@ describe('picoFormat', () => {
       width: 9,
       height: 8,
       letterSpacing: 1,
+      wordSpacing: 6,
       subsets: [
         {
           start: 105, // 'i'
@@ -78,6 +81,7 @@ describe('picoFormat', () => {
       width: 8,
       height: 8,
       letterSpacing: 0,
+      wordSpacing: 6,
       subsets: [
         {
           start: 48, // '0'
@@ -119,6 +123,7 @@ describe('picoFormat', () => {
       width: 0,
       height: 0,
       letterSpacing: 0,
+      wordSpacing: 6,
       subsets: [],
     };
 

@@ -9,6 +9,7 @@ export interface ConverterOptions {
   fontPath: string;
   fontName: string;
   letterSpacing: number;
+  wordSpacing: number;
 }
 
 export function processSymbol(
@@ -150,6 +151,7 @@ export function converterFont(opts: ConverterOptions): Font {
     width: 0,
     height: 0,
     letterSpacing: opts.letterSpacing,
+    wordSpacing: opts.wordSpacing,
     subsets: [],
   };
 

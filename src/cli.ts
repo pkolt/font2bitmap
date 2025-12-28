@@ -21,6 +21,7 @@ program
     'ascii',
   ])
   .option('--letter-spacing <spacing>', 'Letter spacing', (value) => parseInt(value, 10), 1)
+  .option('--word-spacing <spacing>', 'Word spacing', (value) => parseInt(value, 10), 6)
   .option('--symbols <value>', 'A string of additional characters to include', '');
 
 program.parse(process.argv);
@@ -39,6 +40,7 @@ try {
     subsets: options.subsets as Subset[],
     symbols: options.symbols ? Array.from(options.symbols) : [],
     letterSpacing: options.letterSpacing,
+    wordSpacing: options.wordSpacing,
   };
 
   const font = converterFont(converterOptions);

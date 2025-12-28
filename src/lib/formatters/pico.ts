@@ -84,6 +84,7 @@ const font_t ${name} = {
     .width = ${font.width},
     .height = ${font.height},
     .letter_spacing = ${font.letterSpacing},
+    .word_spacing = ${font.wordSpacing},
     .subsets_count = ${font.subsets.length},
     .subsets = (const font_subset_t[]) {
 ${subsetsC}

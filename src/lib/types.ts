@@ -19,5 +19,6 @@ export interface Font {
   width: number;
   height: number;
   letterSpacing: number;
+  wordSpacing: number;
   subsets: FontSubset[];
 }
