@@ -18,6 +18,6 @@ export interface Font {
   name: string;
   width: number;
   height: number;
-  spacing: number;
+  letterSpacing: number;
   subsets: FontSubset[];
 }

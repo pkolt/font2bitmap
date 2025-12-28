@@ -9,7 +9,7 @@ describe('picoFormat', () => {
       name: 'test_font',
       width: 8,
       height: 8,
-      spacing: 1,
+      letterSpacing: 1,
       subsets: [
         {
           start: 65, // 'A'
@@ -29,7 +29,7 @@ describe('picoFormat', () => {
     assert.match(output, /const font_t test_font = {/);
     assert.match(output, /\.width = 8/);
     assert.match(output, /\.height = 8/);
-    assert.match(output, /\.spacing = 1/);
+    assert.match(output, /\.letter_spacing = 1/);
     assert.match(output, /\.subsets_count = 1/);
     assert.match(output, /\.start = 65/);
     assert.match(output, /\.end = 66/);
@@ -48,7 +48,7 @@ describe('picoFormat', () => {
       name: 'variable_font',
       width: 9,
       height: 8,
-      spacing: 1,
+      letterSpacing: 1,
       subsets: [
         {
           start: 105, // 'i'
@@ -77,7 +77,7 @@ describe('picoFormat', () => {
       name: 'multi_subset_font',
       width: 8,
       height: 8,
-      spacing: 0,
+      letterSpacing: 0,
       subsets: [
         {
           start: 48, // '0'
@@ -118,7 +118,7 @@ describe('picoFormat', () => {
       name: 'empty_font',
       width: 0,
       height: 0,
-      spacing: 0,
+      letterSpacing: 0,
       subsets: [],
     };
 

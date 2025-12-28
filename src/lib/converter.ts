@@ -8,7 +8,7 @@ export interface ConverterOptions {
   height: number;
   fontPath: string;
   fontName: string;
-  spacing: number;
+  letterSpacing: number;
 }
 
 export function processSymbol(
@@ -149,7 +149,7 @@ export function converterFont(opts: ConverterOptions): Font {
     name: opts.fontName,
     width: 0,
     height: 0,
-    spacing: opts.spacing,
+    letterSpacing: opts.letterSpacing,
     subsets: [],
   };
 

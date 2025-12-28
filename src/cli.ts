@@ -20,7 +20,7 @@ program
   .option('--subsets <subset1,subset2>', 'Comma-separated list of character subsets', (value) => value.split(','), [
     'ascii',
   ])
-  .option('--spacing <spacing>', 'Letter spacing', (value) => parseInt(value, 10), 1)
+  .option('--letter-spacing <spacing>', 'Letter spacing', (value) => parseInt(value, 10), 1)
   .option('--symbols <value>', 'A string of additional characters to include', '');
 
 program.parse(process.argv);
@@ -38,7 +38,7 @@ try {
     height: options.height,
     subsets: options.subsets as Subset[],
     symbols: options.symbols ? Array.from(options.symbols) : [],
-    spacing: options.spacing,
+    letterSpacing: options.letterSpacing,
   };
 
   const font = converterFont(converterOptions);

@@ -83,7 +83,7 @@ ${symbolBitmapStrings.filter((s) => s !== '').join(',\n')}
 const font_t ${name} = {
     .width = ${font.width},
     .height = ${font.height},
-    .spacing = ${font.spacing},
+    .letter_spacing = ${font.letterSpacing},
     .subsets_count = ${font.subsets.length},
     .subsets = (const font_subset_t[]) {
 ${subsetsC}
