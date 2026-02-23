@@ -25,8 +25,7 @@ describe('picoFormat', () => {
 
     const output = picoFormat(mockFont);
 
-    assert.match(output, /#ifndef FONT_TEST_FONT_H/);
-    assert.match(output, /#define FONT_TEST_FONT_H/);
+    assert.match(output, /^#pragma once/m);
     assert.match(output, /const font_t test_font = {/);
     assert.match(output, /\.width = 8/);
     assert.match(output, /\.height = 8/);
@@ -42,7 +41,6 @@ describe('picoFormat', () => {
     );
     assert.match(output, /\.offsets = \(uint32_t\[\]\) \{ 0, 2 \}/);
     assert.match(output, /\.widths = NULL/);
-    assert.match(output, /#endif \/\/ FONT_TEST_FONT_H/);
   });
 
   test('should generate a C header for a variable-width font', () => {
@@ -129,7 +127,7 @@ describe('picoFormat', () => {
 
     const output = picoFormat(mockFont);
 
-    assert.match(output, /#ifndef FONT_EMPTY_FONT_H/);
+    assert.match(output, /^#pragma once/m);
     assert.match(output, /const font_t empty_font = {/);
     assert.match(output, /\.width = 0/);
     assert.match(output, /\.height = 0/);

@@ -2,8 +2,6 @@ import type { Font } from '../types.ts';
 
 export function picoFormat(font: Font): string {
   const name = font.name;
-  const headerGuard = `FONT_${name.toUpperCase()}_H`;
-
   const subsetsC = font.subsets
     .map((subset) => {
       let runningOffset = 0;
@@ -74,8 +72,8 @@ ${symbolBitmapStrings.filter((s) => s !== '').join(',\n')}
     })
     .join(',\n');
 
-  const result = `#ifndef ${headerGuard}
-#define ${headerGuard}
+  const result = `\
+#pragma once
 
 #include <stdint.h>
 #include "font.h"
@@ -90,8 +88,6 @@ const font_t ${name} = {
 ${subsetsC}
     }
 };
-
-#endif // ${headerGuard}
 `;
 
   return result;

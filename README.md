@@ -65,8 +65,7 @@ The tool generates a C header file (e.g., `my_font.h`) that defines a `font_t` s
 Here's a brief example of what the generated C header file content looks like:
 
 ```c
-#ifndef FONT_MY_FONT_H
-#define FONT_MY_FONT_H
+#pragma once
 
 #include <stdint.h>
 #include "font.h"
@@ -91,8 +90,6 @@ const font_t my_font = {
         }
     }
 };
-
-#endif // FONT_MY_FONT_H
 ```
 
 ## Limitations
